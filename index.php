@@ -24,6 +24,7 @@
       <th>Nama</th>
       <th>Tanggal Lahir</th>
       <th>Jenis Kelamin</th>
+      <th>Aksi</th>
     </tr>
     <?php foreach ($patients as $index => $patient) : ?>
       <tr>
@@ -34,6 +35,7 @@
         <td><?= $patient["name"] ?></td>
         <td><?= $patient["birth_date"] ?></td>
         <td><?= $patient["gender"] ?></td>
+        <td><a href="deletePatient.php?id=<?= $patient["id"] ?>" onclick='return confirm("Yakin menghapus data?")'>Hapus</a></td>
       </tr>
     <?php endforeach; ?>
   </table>
