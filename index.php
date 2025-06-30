@@ -14,7 +14,9 @@
   <h1>Sistem Manajemen Rumah Sakit</h1>
 
   <h3>Daftar Pasien</h3>
-  
+
+  <a href="addPatient.php">Tambah Pasien</a>
+
   <table border="1" cellspacing="0" cellpadding="10">
     <tr>
       <th>No</th>

@@ -11,4 +11,16 @@
 
     return $patients;
   }
+
+  function tambah($data) {
+  global $conn;
+  $name = htmlspecialchars($data["name"]);
+  $date = htmlspecialchars($data["date"]);
+  $gender = htmlspecialchars($data["gender"]);
+  $photo = htmlspecialchars($data["photo"]);
+  $query = "INSERT INTO patients VALUES('', '$name', '$date', '$gender', '$photo')";
+  mysqli_query($conn, $query);
+
+  return mysqli_affected_rows($conn);
+}
 ?>
