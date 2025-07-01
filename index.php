@@ -35,7 +35,11 @@
         <td><?= $patient["name"] ?></td>
         <td><?= $patient["birth_date"] ?></td>
         <td><?= $patient["gender"] ?></td>
-        <td><a href="deletePatient.php?id=<?= $patient["id"] ?>" onclick='return confirm("Yakin menghapus data?")'>Hapus</a></td>
+        <td>
+          <a href="deletePatient.php?id=<?= $patient["id"] ?>" onclick='return confirm("Yakin menghapus data?")'>Hapus</a>
+          |
+          <a href="editPatient.php?id=<?= $patient["id"] ?>">Edit</a>
+        </td>
       </tr>
     <?php endforeach; ?>
   </table>

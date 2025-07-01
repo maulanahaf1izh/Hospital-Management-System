@@ -33,14 +33,14 @@
       <input type="text" id="name" name="name" placeholder="Masukkan nama pasien" required>
     </div>
     <div>
-      <label for="date">Tanggal Lahir Pasien</label>
-      <input type="date" id="date" name="date" placeholder="Masukkan nama pasien" required>
+      <label for="birth_date">Tanggal Lahir Pasien</label>
+      <input type="date" id="birth_date" name="birth_date" placeholder="Masukkan nama pasien" required>
     </div>
     <div>
       <label>Jenis Kelamin Pasien</label>
       <br>
-      <input type="radio" id="laki-laki" name="gender" value="laki-laki" required><label for="laki-laki">Laki-laki</label>
-      <input type="radio" id="perempuan" name="gender" value="perempuan"><label for="perempuan">Perempuan</label>
+      <input type="radio" id="male" name="gender" value="Male" required><label for="male">Laki-laki</label>
+      <input type="radio" id="female" name="gender" value="Female"><label for="female">Perempuan</label>
     </div>
     <div>
       <label for="photo">Foto Pasien</label>
