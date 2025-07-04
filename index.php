@@ -1,6 +1,25 @@
 <?php 
   require "functions.php";
   $patients = query("SELECT * FROM patients");
+
+  if (isset($_POST["search"])) {
+    $patients = search($_POST["keyword"]);
+  }
+
+  if (isset($_POST["filter"])) {
+    if (!isset($_POST["gender"])) {
+      $patients = query("SELECT * FROM patients");
+    } else {
+      $gender = $_POST["gender"];
+
+      if (in_array("Male", $gender) && in_array("Female", $gender)) {
+        $patients = query("SELECT * FROM patients");
+      } else {
+        $selectedGender = implode(", ", $gender);
+        $patients = filter($selectedGender);
+      }
+    }
+  }
 ?>
 
 <!DOCTYPE html>
@@ -14,6 +33,21 @@
   <h1>Sistem Manajemen Rumah Sakit</h1>
 
   <h3>Daftar Pasien</h3>
+
+  <form action="" method="post">
+    <input type="text" name="keyword" autofocus placeholder="Masukkan kata kunci pencarian!" autocomplete="off">
+    <button type="submit" name="search">Cari</button>
+  </form>
+
+  <form action="" method="post">
+    <p>Filter berdasarkan gender</p>
+
+    <input type="checkbox" name="gender[]" value="Male" id="Male"><label for="Male">Laki-laki</label>
+
+    <input type="checkbox" name="gender[]" value="Female" id="Female"><label for="Female">Perempuan</label>
+
+    <button type="submit" name="filter">Filter</button>
+  </form>
 
   <a href="addPatient.php">Tambah Pasien</a>
 

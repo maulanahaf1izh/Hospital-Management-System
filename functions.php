@@ -50,4 +50,16 @@
 
    return mysqli_affected_rows($conn);
   }
+
+  function search($keyword) {
+    $query = "SELECT * FROM patients WHERE name LIKE '%$keyword%' OR birth_date LIKE '%$keyword%'";
+
+    return query($query);
+  }
+
+  function filter($selectedGender) {
+    $query = "SELECT * FROM patients WHERE gender = '$selectedGender'";
+
+    return query($query);
+  }
 ?>
