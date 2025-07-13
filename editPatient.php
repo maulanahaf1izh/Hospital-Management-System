@@ -36,7 +36,7 @@
     <input type="hidden" name="oldPhoto" value="<?= $patient["photo"] ?>">
     <div>
       <label for="name">Nama Pasien</label>
-      <input type="text" id="name" name="name" placeholder="Masukkan nama pasien" required value=<?= $patient["name"] ?>>
+      <input type="text" id="name" name="name" placeholder="Masukkan nama pasien" required value="<?= $patient["name"] ?>">
     </div>
     <div>
       <label for="birth_date">Tanggal Lahir Pasien</label>
@@ -55,7 +55,7 @@
     <div>
       <label for="photo">Foto Pasien</label>
       <br>
-      <img src="./img/patients-photo/<?= $patient["photo"] ?>" alt="<?= $patient["name"] ?>">
+      <img src="./img/patients-photo/<?= $patient["photo"] ?>" alt="<?= $patient["name"] ?>" width="100">
       <input type="file" id="photo" name="photo">
     </div>
     <button type="submit" name="submit">Ubah</button>

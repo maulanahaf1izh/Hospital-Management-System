@@ -64,15 +64,15 @@
       <tr>
         <td><?= $index + 1 ?></td>
         <td>
-          <img src="./img/patients-photo/<?= $patient["photo"] ?>" alt="<?= $patient["name"] ?>">
+          <img src="./img/patients-photo/<?= $patient["photo"] ?>" alt="<?= $patient["name"] ?>" width="100">
         </td>
         <td><?= $patient["name"] ?></td>
         <td><?= $patient["birth_date"] ?></td>
         <td><?= $patient["gender"] ?></td>
         <td>
-          <a href="deletePatient.php?id=<?= $patient["id"] ?>" onclick='return confirm("Yakin menghapus data?")'>Hapus</a>
-          |
           <a href="editPatient.php?id=<?= $patient["id"] ?>">Edit</a>
+          |
+          <a href="deletePatient.php?id=<?= $patient["id"] ?>" onclick='return confirm("Yakin menghapus data?")'>Hapus</a>
         </td>
       </tr>
     <?php endforeach; ?>

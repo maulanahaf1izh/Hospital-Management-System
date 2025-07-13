@@ -44,7 +44,7 @@
     </div>
     <div>
       <label for="photo">Foto Pasien</label>
-      <input type="file" id="photo" name="photo" required>
+      <input type="file" id="photo" name="photo">
     </div>
     <button type="submit" name="submit">Tambah</button>
   </form>

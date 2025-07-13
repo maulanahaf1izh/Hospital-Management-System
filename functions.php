@@ -36,11 +36,7 @@
     $photoTmpName = $_FILES["photo"]["tmp_name"];
 
     if ($error === 4) {
-      echo "<script>
-        alert('Pilih gambar dahulu');
-      </script>";
-
-      return false;
+      return "default.jpg";
     }
 
     $validPhotoExtension = ["jpg", "jpeg", "png"];
