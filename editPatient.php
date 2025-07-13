@@ -31,8 +31,9 @@
 
   <a href="index.php">Kembali</a>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <input type="hidden" name="id" value="<?= $patient["id"] ?>">
+    <input type="hidden" name="oldPhoto" value="<?= $patient["photo"] ?>">
     <div>
       <label for="name">Nama Pasien</label>
       <input type="text" id="name" name="name" placeholder="Masukkan nama pasien" required value=<?= $patient["name"] ?>>
@@ -53,9 +54,11 @@
     </div>
     <div>
       <label for="photo">Foto Pasien</label>
-      <input type="text" id="photo" name="photo" required value=<?= $patient["photo"] ?>>
+      <br>
+      <img src="./img/patients-photo/<?= $patient["photo"] ?>" alt="<?= $patient["name"] ?>">
+      <input type="file" id="photo" name="photo">
     </div>
-    <button type="submit" name="submit">Tambah</button>
+    <button type="submit" name="submit">Ubah</button>
   </form>
 </body>
 </html>

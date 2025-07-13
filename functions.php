@@ -68,8 +68,10 @@
 
   function deletePatient($id) {
     global $conn;
-    mysqli_query($conn, "DELETE FROM patients WHERE id = $id");
-
+    
+    $photoFile = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM patients WHERE id='$id'"));
+    unlink("./img/patients-photo/" . $photoFile["photo"]);
+    mysqli_query($conn, "DELETE FROM patients WHERE id='$id'");
     return mysqli_affected_rows($conn);
   }
 
@@ -80,7 +82,17 @@
     $name = htmlspecialchars($data["name"]);
     $birth_date = htmlspecialchars($data["birth_date"]);
     $gender = htmlspecialchars($data["gender"]);
-    $photo = htmlspecialchars($data["photo"]);
+    $oldPhoto = htmlspecialchars($data["oldPhoto"]);
+    
+    if ($_FILES["photo"]["error"] === 4) {
+      $photo = $oldPhoto;
+    } else {
+      $photoFile = mysqli_fetch_assoc(mysqli_query($conn,"SELECT * FROM patients WHERE id='$id'"));
+      unlink("./img/patients-photo/" . $photoFile["photo"]);
+      
+      $photo = photoUpload();
+    }
+
     $query = "UPDATE patients SET
       name = '$name',
       birth_date = '$birth_date',
@@ -88,9 +100,9 @@
       photo = '$photo'
       WHERE id = $id
     ";
-    mysqli_query($conn, $query);
 
-   return mysqli_affected_rows($conn);
+    mysqli_query($conn, $query);
+    return mysqli_affected_rows($conn);
   }
 
   function search($keyword) {
