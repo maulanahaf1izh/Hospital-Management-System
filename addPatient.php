@@ -27,7 +27,7 @@
 
   <a href="index.php">Kembali</a>
 
-  <form action="" method="post">
+  <form action="" method="post" enctype="multipart/form-data">
     <div>
       <label for="name">Nama Pasien</label>
       <input type="text" id="name" name="name" placeholder="Masukkan nama pasien" required>
@@ -44,7 +44,7 @@
     </div>
     <div>
       <label for="photo">Foto Pasien</label>
-      <input type="text" id="photo" name="photo" required>
+      <input type="file" id="photo" name="photo" required>
     </div>
     <button type="submit" name="submit">Tambah</button>
   </form>
